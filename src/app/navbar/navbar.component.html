@@ -50,7 +50,7 @@
                   <img src="../../assets/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" class="rounded-5 "style="width: 30px;">
                   </a>
                   <ul class="dropdown-menu bg-dark">
-                    <li><a class="dropdown-item text-white cursor-pointer"  >{{email}}</a></li>
+                    <li><a class="dropdown-item text-white cursor-pointer"  >{{email|async}}</a></li>
                     <li><a class="dropdown-item text-white cursor-pointer" (click)="x.loginout()">Log out</a></li>
                   </ul>
                 </li>
@@ -118,7 +118,7 @@
                                    <input type="text" id="firstName" class="form-control" placeholder="First Name" formControlName="name">
                                    <div *ngIf="register.get('name')?.status == 'INVALID' &&  ngForm.submitted || register.get('name')?.errors && register.get('name')?.dirty" class="alert text-danger p-0  m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('maxlength')">max length is 10</p>
-                                      <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('minlength')">min length is 2</p>
+                                      <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('minlength')">min length is 3</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('required')">Name is required</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('pattern')">Name is InValid</p>
                                   </div>
@@ -130,7 +130,7 @@
                                    <input type="text" id="lastName" class="form-control" placeholder="Last Name" formControlName="lastname">
                                    <div *ngIf="register.get('lastname')?.status == 'INVALID' && ngForm.submitted || register.get('lastname')?.errors && register.get('lastname')?.dirty" class="alert text-danger p-0  m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('maxlength')">max length is 10</p>
-                                      <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('minlength')">min length is 2</p>
+                                      <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('minlength')">min length is 3</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('required')">Name is required</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('pattern')">Name is InValid</p>
                                   </div>

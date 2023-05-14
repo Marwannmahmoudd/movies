@@ -11,6 +11,7 @@ import { TrendingService } from '../trending.service';
 import { UserService } from '../services/user.service';
 import { SearchService } from '../search.service';
 import { LoaderService } from '../loader.service';
+import { BehaviorSubject } from 'rxjs';
 // register Swiper custom elements
 register();
 @Component({
@@ -29,7 +30,7 @@ export class NavbarComponent {
   nav:any 
   importantid:any
   success:any
-  email:any
+  email:BehaviorSubject<any>=new BehaviorSubject(null)
   res34:any
  public search2:any =[]
 public  searchsure:boolean=false
@@ -63,8 +64,8 @@ public  searchsure:boolean=false
     }
       
   register:FormGroup = new FormGroup ({
-  name:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(10),Validators.pattern(/^[A-Za-z]+$/)]),
-  lastname:new FormControl(null , [Validators.required , Validators.minLength(2),Validators.maxLength(10),Validators.pattern(/^[A-Za-z]+$/)]),
+  name:new FormControl(null , [Validators.required , Validators.minLength(3),Validators.maxLength(10),Validators.pattern(/^[A-Za-z]+$/)]),
+  lastname:new FormControl(null , [Validators.required , Validators.minLength(3),Validators.maxLength(10),Validators.pattern(/^[A-Za-z]+$/)]),
   email:new FormControl(null , [Validators.required,Validators.email]),
   password:new FormControl(null , [Validators.required ,Validators.pattern(/^(?=.*?[0-9]).{8,}$/)]),
   rePassword:new FormControl(null , [Validators.required,Validators.pattern(/^(?=.*?[0-9]).{8,}$/)]),
@@ -95,7 +96,7 @@ public  searchsure:boolean=false
         this.x.token = localStorage.getItem('email')
         this.success = data.message
         $('#close').click()
-        this.email =   localStorage.getItem('email')
+        this.email.next(localStorage.getItem('email'))
         this.ooh=false
       }
       },
@@ -139,7 +140,8 @@ public  searchsure:boolean=false
   error:(dataa)=>{
   console.log(dataa);
   
-    this.erorr = dataa.error.message
+    this.erorr = dataa.error.errors.msg
+
     
     this.ooh=false}
   });
