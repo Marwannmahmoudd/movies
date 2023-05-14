@@ -13,7 +13,7 @@ export class DiscoverComponent implements OnInit{
   index:BehaviorSubject<number> = new BehaviorSubject(1)
   index2 = this.index.asObservable()
   color:any
-  
+  select44:any
 constructor(private discover:DiscoverService){
 
 
@@ -78,6 +78,8 @@ select2(event:any){
     })
     }
     select4(){
+   this.select44 =  document.getElementById('select')
+   this.select44.value ='Release Dates'
       this.discover.getdiscovermovies(1,'popularity.desc').subscribe({
         next:(res)=>{
           this.movies2 = res.results
