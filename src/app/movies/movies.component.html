@@ -1,6 +1,17 @@
 <main class="bg-black h-100 position-relative" >
-  
- 
+  <div class="row load" >
+    <div class="loading position-absolute top-0 start-0 w-100 h-100"  >
+       <div class="containee">
+         <div class="loader33">
+             <span class="circle"></span>
+             <span class="sqaure"></span>
+             <span class="triangle"></span>
+             <span class="circle"></span>
+         </div>
+       </div>
+     </div>
+    </div>
+   <ng-container >
     <section class="" >  
       <div class="row">
       <owl-carousel-o [options]="customOptions2" class="col-md-12">
@@ -15,11 +26,11 @@
             <div class="title position-absolute col-md-5">
 
               <div class=" d-flex flex-column justify-content-center align-items-start  ">
-                <div class="py-3">
-                    <h1 class="header text-white ">Watch Free Movies With <span class="text-warning">N</span>oxe.</h1>
+                <div class="py-3 headers">
+                    <span>Watch Free Movies With </span> <span class="text-warning">N</span><span>oxe.</span>
                 </div>
-                <div class="pb-3"> 
-                    <p class="text-white header2">Stop searching for free movie websites and watch Noxe now.</p> 
+                <div class="pb-3 headers2"> 
+                  <span>Stop searching for free movie websites and watch Noxe now.</span>
                 </div>
               </div>
               </div>
@@ -568,5 +579,7 @@
     </owl-carousel-o>
 </div>
 </div>
+
     </section>
+  </ng-container>
 </main>

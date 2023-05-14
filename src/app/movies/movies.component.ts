@@ -6,6 +6,7 @@ import { TrendingService } from '../trending.service';
 import { MoviesService } from '../movies.service';
 import { TvService } from '../tv.service';
 import { BehaviorSubject } from 'rxjs';
+import { LoaderService } from '../loader.service';
 // register Swiper custom elements
 register();
 
@@ -28,18 +29,22 @@ export class MoviesComponent implements OnInit{
   topratedtv:any[]=[]
   nav:any
   isLoading:boolean =true
- constructor(private trending:TrendingService ,private movies:MoviesService ,private tv:TvService){}
+  isloader:BehaviorSubject<boolean> = new BehaviorSubject(true)
+ constructor(private trending:TrendingService ,private movies:MoviesService ,private tv:TvService ,private loader:LoaderService){}
 ngOnInit(): void {
   
-   
+   this.loader.navisloader.next(true)
 
   this.tv.getairing_today().subscribe({
     next:(res)=>{
       this.airingtodaytv =res.results
       setTimeout(() => {
         this.isLoading = false
+       
       }, 400);
-    
+    setTimeout(() => {
+      this.isloader.next(false)
+    }, 2000);
      
     }
   })

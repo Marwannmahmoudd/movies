@@ -3,6 +3,27 @@
 }
 .header{
     position: relative;
+   
+}
+.headers{
+    position: relative;
+    font-size: 50px!important;
+    color: white;
+    font-weight: 700;
+}
+.headers2{
+   
+    font-size: 20px!important;
+    color: white;
+    font-weight: 600;
+}
+@media (max-width:700px) {
+    .headers{
+        font-size: 30px!important;
+    }
+    .headers2{
+        font-size: 13px!important;
+    }
 }
 .owl-theme .owl-nav [class*=owl-]{
     display: none!important;
@@ -106,4 +127,3 @@ left: 0px;
     position: relative;
     animation: moving infinite 1.5s  linear ;
 }
-

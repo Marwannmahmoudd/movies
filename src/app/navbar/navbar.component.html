@@ -7,7 +7,7 @@
             <i class="fa-solid fa-bars text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-         <ul class="navbar-nav me-auto mt-2 mt-lg-0 d-flex align-items-center justify-content-center pt-1 pe-3">
+         <ul class="navbar-nav me-auto mt-2 mt-lg-0 d-flex align-items-center justify-content-center pt-1 pe-3" *ngIf="loader.navisloader |async">
                 
             <li class="nav-item">
                 <a class="nav-link  text cursor-pointer"  
@@ -34,7 +34,7 @@
           
         </ul>
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
-               <form class="d-flex search">
+               <form class="d-flex search" *ngIf="loader.navisloader |async">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (input)="search($event)">
                   
                 </form>
@@ -45,7 +45,7 @@
                 <li class="nav-item">
                     <a class="nav-link navlink2"   data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="!x.token"> Login</a>
                 </li>
-                <li class="nav-item dropdown" *ngIf="x.token">
+                <li class="nav-item dropdown" *ngIf="x.token ">
                   <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between"  role="button" data-bs-toggle="dropdown" aria-expanded="false" >
                   <img src="../../assets/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" class="rounded-5 "style="width: 30px;">
                   </a>
@@ -116,7 +116,7 @@
                                 <div class="form-data">
                               
                                    <input type="text" id="firstName" class="form-control" placeholder="First Name" formControlName="name">
-                                   <div *ngIf="register.get('name')?.status == 'INVALID' &&  ngForm.submitted || register.get('name')?.errors && register.get('name')?.dirty" class="alert alert-danger" >
+                                   <div *ngIf="register.get('name')?.status == 'INVALID' &&  ngForm.submitted || register.get('name')?.errors && register.get('name')?.dirty" class="alert text-danger p-0  m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('maxlength')">max length is 10</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('minlength')">min length is 2</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('name')?.getError('required')">Name is required</p>
@@ -128,7 +128,7 @@
                                 <div class="form-data">
                                  
                                    <input type="text" id="lastName" class="form-control" placeholder="Last Name" formControlName="lastname">
-                                   <div *ngIf="register.get('lastname')?.status == 'INVALID' && ngForm.submitted || register.get('lastname')?.errors && register.get('lastname')?.dirty" class="alert alert-danger" >
+                                   <div *ngIf="register.get('lastname')?.status == 'INVALID' && ngForm.submitted || register.get('lastname')?.errors && register.get('lastname')?.dirty" class="alert text-danger p-0  m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('maxlength')">max length is 10</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('minlength')">min length is 2</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('lastname')?.getError('required')">Name is required</p>
@@ -141,7 +141,7 @@
                                 <div class="form-data">
                             
                                   <input type="email" id="email" class="form-control" placeholder="Email Address" formControlName="email">
-                                   <div *ngIf="register.get('email')?.errors && ngForm.submitted || register.get('email')?.errors && register.get('email')?.dirty" class="alert alert-danger" >
+                                   <div *ngIf="register.get('email')?.errors && ngForm.submitted || register.get('email')?.errors && register.get('email')?.dirty" class="alert text-danger p-0 m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('email')?.getError('required')">email is required</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('email')?.getError('email')">email is InValid</p>
                                   </div> 
@@ -152,7 +152,7 @@
                                 
                                    <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
                                  
-          <div *ngIf="register.get('password')?.errors && ngForm.submitted || register.get('password')?.errors && register.get('password')?.dirty" class="alert alert-danger" >
+          <div *ngIf="register.get('password')?.errors && ngForm.submitted || register.get('password')?.errors && register.get('password')?.dirty" class="alert text-danger  p-0 m-0" >
               <p class="m-0 text-danger" *ngIf="register.get('password')?.getError('required')">password is required</p>
               <p class="m-0 text-danger" *ngIf="register.get('password')?.getError('pattern')">Minimum eight characters</p>
           </div>
@@ -162,7 +162,7 @@
                              
           <input class="form-control " type="password" id="rePassword" placeholder="RePassword" formControlName="rePassword">
                  
-          <div *ngIf="register.get('rePassword')?.errors && ngForm.submitted || register.get('rePassword')?.errors && register.get('rePassword')?.dirty" class="alert alert-danger" >
+          <div *ngIf="register.get('rePassword')?.errors && ngForm.submitted || register.get('rePassword')?.errors && register.get('rePassword')?.dirty" class="alert text-danger  p-0 m-0" >
               <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('required')">repassword is required</p>
               <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('passwordmatch')">password and repassword not match</p>
               <p class="m-0 text-danger" *ngIf="register.get('rePassword')?.getError('pattern')">Minimum eight characters</p>
@@ -172,7 +172,7 @@
                                 <div class="form-data">
                               
                                    <input type="number" id="age" class="form-control"  placeholder="Enter Age" formControlName="age">
-                                   <div *ngIf="register.get('age')?.errors && ngForm.submitted || register.get('age')?.errors && register.get('age')?.dirty" class="alert alert-danger" >
+                                   <div *ngIf="register.get('age')?.errors && ngForm.submitted || register.get('age')?.errors && register.get('age')?.dirty" class="alert text-danger  p-0 m-0" >
                                       <p class="m-0 text-danger" *ngIf="register.get('age')?.getError('required')">age is required</p>
                                       <p class="m-0 text-danger" *ngIf="register.get('age')?.getError('pattern')">max age is 200</p>
                                   </div>
@@ -263,7 +263,7 @@
                             <div class="col-12">
                                <div class="form-data">
                                  <input type="email" id="email" class="form-control" placeholder="Email Address" formControlName="email">
-                                 <div *ngIf="login.get('email')?.errors && ngForm.submitted || login.get('email')?.errors && login.get('email')?.dirty" class="alert alert-danger" >
+                                 <div *ngIf="login.get('email')?.errors && ngForm.submitted || login.get('email')?.errors && login.get('email')?.dirty" class="alert text-danger p-0  m-0" >
                                     <p class="m-0 text-danger" *ngIf="login.get('email')?.getError('required')">email is required</p>
                                     <p class="m-0 text-danger" *ngIf="login.get('email')?.getError('email')">email is InValid</p>
                                 </div> 
@@ -273,7 +273,7 @@
                                <div class="form-data">
                                  <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
                                 
-                                 <div *ngIf="login.get('password')?.errors && ngForm.submitted || login.get('password')?.errors && login.get('password')?.dirty" class="alert alert-danger" >
+                                 <div *ngIf="login.get('password')?.errors && ngForm.submitted || login.get('password')?.errors && login.get('password')?.dirty" class="alert text-danger p-0  m-0" >
                                      <p class="m-0 text-danger" *ngIf="login.get('password')?.getError('required')">password is required</p>
                                      <p class="m-0 text-danger" *ngIf="login.get('password')?.getError('pattern')">Minimum eight characters</p>
                                  </div>

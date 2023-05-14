@@ -10,6 +10,7 @@ import { register } from 'swiper/element/bundle';
 import { TrendingService } from '../trending.service';
 import { UserService } from '../services/user.service';
 import { SearchService } from '../search.service';
+import { LoaderService } from '../loader.service';
 // register Swiper custom elements
 register();
 @Component({
@@ -46,14 +47,14 @@ public  searchsure:boolean=false
   
     
   }
-  constructor(public x:UserService , private _router:Router ,public z:SearchService , private router:ActivatedRoute){
+  constructor(public x:UserService , private _router:Router ,public z:SearchService , private router:ActivatedRoute ,public loader:LoaderService){
    x.condit.asObservable().subscribe((res)=>{
     this.res34 = res
     console.log(this.res34);
     console.log(this.email);
     
    })
-    
+   
   }
   search(event:any){
 
