@@ -92,3 +92,6 @@ transform: scale(1.04)!important;
 .sure:hover .dark{
     opacity: 1!important;
 }
+iframe{
+    width: 100%!important;
+}

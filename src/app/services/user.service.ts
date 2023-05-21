@@ -20,7 +20,7 @@ export class UserService {
     
     if((localStorage.getItem('userdata') !== null || localStorage.getItem('email')) !== null){
       this.token = localStorage.getItem('email')
-     
+    _router.navigate(['./home'])
      this.condit.next(true)
      }
      else{
