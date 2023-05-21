@@ -55,7 +55,7 @@ public  searchsure:boolean=false
     console.log(this.email);
     
    })
-   
+   this.email.next(localStorage.getItem('email'))
   }
   search(event:any){
 
