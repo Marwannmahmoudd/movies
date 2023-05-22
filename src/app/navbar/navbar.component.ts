@@ -53,9 +53,12 @@ public  searchsure:boolean=false
     this.res34 = res
     console.log(this.res34);
     console.log(this.email);
-    
+    if( this.email.getValue()=== null){
+      this.res34 = null
+    }
    })
    this.email.next(localStorage.getItem('email'))
+ 
   }
   search(event:any){
 
