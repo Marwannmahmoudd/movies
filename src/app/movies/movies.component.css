@@ -23,7 +23,10 @@
     }
     .headers2{
         font-size: 13px!important;
-        padding-bottom: 90!important;
+        margin-bottom: 90!important;
+    }
+    .title{
+        padding-bottom: 40px!important;
     }
 }
 .owl-theme .owl-nav [class*=owl-]{
