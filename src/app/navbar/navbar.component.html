@@ -40,14 +40,14 @@
                 </form>
                 <li class="nav-item">
                     <a class="nav-link navlink2 text"  
-                    data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="!res34">Register</a>
+                    data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="!x.token">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link navlink2"   data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="!res34"> Login</a>
+                    <a class="nav-link navlink2"   data-bs-toggle="modal" data-bs-target="#exampleModal2" *ngIf="!x.token"> Login</a>
                 </li>
-                <li class="nav-item dropdown me-auto" *ngIf="res34">
+                <li class="nav-item dropdown me-auto" *ngIf="x.token">
                   <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-between"  role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                  <img src="../../assets/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" class="rounded-5 "style="width: 30px;">
+                  <img src="./assets/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png" class="rounded-5 "style="width: 30px;">
                   </a>
                   <ul class="dropdown-menu bg-dark">
                     <li><a class="dropdown-item text-white cursor-pointer"  >{{email|async}}</a></li>
@@ -76,19 +76,19 @@
 
                <swiper-slide class="ohya w-100 h-100" style="height: 1000px;">
                   <div>
-                     <img src="../../assets/ambulance-movie-poster.jpg" class="w-100 h-100 position-relative" alt="" >
+                     <img src="./assets/ambulance-movie-poster.jpg" class="w-100 h-100 position-relative" alt="" >
                   </div>
                </swiper-slide >
 
                <swiper-slide class=" ohya w-100 h-100">
                   <div>
-                     <img src="../../assets/Panama.jpg" class="w-100 position-relative" alt="">
+                     <img src="./assets/Panama.jpg" class="w-100 position-relative" alt="">
                   </div>
                </swiper-slide >
 
                <swiper-slide class="ohya w-100 h-100">
                   <div>
-                     <img src="../../assets//morbius-poster-1.jpg" class="w-100 position-relative" alt="">
+                     <img src="./assets//morbius-poster-1.jpg" class="w-100 position-relative" alt="">
                   </div>
                </swiper-slide>
           
@@ -224,19 +224,19 @@
       
                      <swiper-slide class="ohya w-100 h-100" style="height: 1000px;">
                         <div>
-                           <img src="../../assets/ambulance-movie-poster.jpg" class="w-100 h-100 position-relative" alt="" >
+                           <img src="./assets/ambulance-movie-poster.jpg" class="w-100 h-100 position-relative" alt="" >
                         </div>
                      </swiper-slide >
       
                      <swiper-slide class=" ohya w-100 h-100">
                         <div>
-                           <img src="../../assets/Panama.jpg" class="w-100 position-relative" alt="">
+                           <img src="./assets/Panama.jpg" class="w-100 position-relative" alt="">
                         </div>
                      </swiper-slide >
       
                      <swiper-slide class="ohya w-100 h-100">
                         <div>
-                           <img src="../../assets//morbius-poster-1.jpg" class="w-100 position-relative" alt="">
+                           <img src="./assets//morbius-poster-1.jpg" class="w-100 position-relative" alt="">
                         </div>
                      </swiper-slide>
                 

@@ -32,6 +32,7 @@ export class NavbarComponent {
   success:any
   email:BehaviorSubject<any>=new BehaviorSubject(null)
   res34:any
+  
  public search2:any =[]
 public  searchsure:boolean=false
   @HostListener('document:scroll') scrollover(){
@@ -54,10 +55,11 @@ public  searchsure:boolean=false
     console.log(this.res34);
     console.log(this.email);
     if( this.email.getValue()=== null){
-      this.res34 = null
+      x.token = null
     }
    })
    this.email.next(localStorage.getItem('email'))
+ console.log(x.token);
  
   }
   search(event:any){
